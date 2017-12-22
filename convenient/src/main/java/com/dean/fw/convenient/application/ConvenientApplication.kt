@@ -2,7 +2,6 @@ package com.dean.fw.convenient.application
 
 import android.app.Application
 import android.os.StrictMode
-import com.dean.fw.convenient.version.util.VersionUtils
 
 /**
  * 框架Application
@@ -16,10 +15,7 @@ abstract class ConvenientApplication : Application() {
     // app是否初始化完成（默认未完成）
     var isAppInitFinish = false
     // 启动过的Activity
-    private val mHistoryActivityMap = emptyMap<String, Any>()
-
-    private lateinit var versionUpdateDownloadLocalPath
-
+    private lateinit var mHistoryActivityMap: MutableMap<String, Any>
 
     override fun onCreate() {
         super.onCreate()

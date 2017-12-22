@@ -15,7 +15,7 @@ import java.net.URLEncoder
  *
  * Created by dean on 2017/12/22.
  */
-class DefaultHttpConnection {
+open class DefaultHttpConnection {
 
     /**
      * 发送HttpGet请求
@@ -23,9 +23,9 @@ class DefaultHttpConnection {
      * @param basicURL              基础url
      * @param headerParams          连接头参数集
      * @param urlParams             url参数集
-     * @param onConnectionListener  监听器
+     * @param onConnectionListener  http请求监听器
      */
-    protected fun sendHttpGet(basicURL: String, headerParams: Map<String, Any>, urlParams: Any, onConnectionListener: OnConnectionListener?) {
+    protected fun sendHttpGet(basicURL: String, headerParams: LinkedHashMap<String, Any>, urlParams: Any, onConnectionListener: OnConnectionListener?) {
         sendHttpGet(basicURL, headerParams, urlParams, "utf-8", 5000, false, onConnectionListener)
     }
 
@@ -40,7 +40,7 @@ class DefaultHttpConnection {
      * @param isUseCache            是否使用缓存
      * @param onConnectionListener  监听器
      */
-    protected fun sendHttpGet(basicURL: String, headerParams: Map<String, Any>, urlParams: Any, encoding: String, connectTimeout: Int, isUseCache: Boolean,
+    protected fun sendHttpGet(basicURL: String, headerParams: LinkedHashMap<String, Any>, urlParams: Any, encoding: String, connectTimeout: Int, isUseCache: Boolean,
                               onConnectionListener: OnConnectionListener?) {
 
         var httpURLConnection: HttpURLConnection? = null

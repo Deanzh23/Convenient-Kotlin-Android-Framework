@@ -63,6 +63,8 @@ class VersionUpdate(context: Context) {
             Log.e(VersionUpdate::class.simpleName, "没有配置版本更新URL，无法检查版本更新")
             return
         }
+
+
     }
 
 }
